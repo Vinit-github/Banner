@@ -16,10 +16,10 @@ class Data extends AbstractHelper {
 		);
 	}
 
-	public function isEnable($code, $storeId = null)
+	public function isEnabled($code, $storeId = null)
 	{
 
-		return $this->getConfigValue(self::XML_PATH_XLAB_BANNER .'general/enabled/'. $code, $storeId);
+		return $this->getConfigValue(self::XML_PATH_XLAB_BANNER .'general/'. $code, $storeId);
 	}
 
 

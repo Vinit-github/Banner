@@ -2,19 +2,20 @@
 
 namespace Xlab\Banner\Block;
 
-use Magento\Framework\View\Element\Template;
 use Xlab\Banner\Helper\Data;
 
-class Slider extends Template  {
+class Slider extends \Magento\Framework\View\Element\Template  {
 
 	protected $_helper;
 
-	public function __construct(
-		\Magento\Framework\App\Action\Context $context,
-		\Xlab\Banner\Helper\Data $helperData)
+	public function __construct(		
+		\Xlab\Banner\Helper\Data $helperData,
+		\Magento\Framework\View\Element\Template\Context $context
+	)
 	{
 		$this->_helper = $helperData;
-		return parent::__construct($context);
+		parent::__construct($context);
+		
 	}
 /*
 *	return type array
@@ -28,7 +29,7 @@ class Slider extends Template  {
 	}
 
 	public function isEnabled(){
-		return $this->_helper->isEnable();
+		return $this->_helper->isEnabled('enable');
 	}
 }
 
