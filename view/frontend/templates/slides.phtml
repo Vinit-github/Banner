@@ -1,0 +1,10 @@
+<h3> HomePage Slider 111111 </h3>
+
+<?php $slides = $block->getSlides();?>
+<?php if($slides):?>
+<?php foreach($slides as $slide ):?>
+	
+<span><?php echo $slide; ?></span>
+<?php endforeach;?>
+<?php endif;?>
+<?php echo ' Enabled '.$block->isEnable(); ?>
