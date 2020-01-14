@@ -1,0 +1,21 @@
+{
+    "name": "xlab/banner",
+    "description": "Xlab Banner Module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Vinit Kumar",
+            "email": "vinit.dapl@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "xlab\\banner\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
