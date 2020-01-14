@@ -1,0 +1,104 @@
+<?php
+/**
+ * @category   Xlab
+ * @package    Xlab_Banner
+ * @author     vinit.dapl@gmail.com
+ */
+?>
+<?php $collection = $block->getBannerCollection(); ?>
+<?php if($collection->count() > 0): ?>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+    <table class="data table" id="banner-data-table">
+        <caption class="table-caption">Xlab Banner Data</caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col title">Title</th>
+                <th scope="col" class="col author">Author</th>
+                <th scope="col" class="col image">Image</th>
+                <th scope="col" class="col created_at">Created At</th>
+                <th scope="col" class="col actions">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($collection as $key => $data): ?>
+                <tr>
+                    <td data-th="Title" class="col title"><?php echo $data->getTitle(); ?></td>
+                    <td data-th="Author" class="col author"><?php echo $data->getAuthor(); ?></td>
+                    <td data-th="Image" class="col image">
+                        <?php if($data->getImage()): ?>
+                            <img width="70" height="70" src="<?php echo $block->getBaseUrl().'pub/media/'.$data->getImage(); ?>">
+                        <?php else: ?>
+                            <p>No Image</p>
+                        <?php endif; ?>
+                    </td>
+                    <td data-th="Date" class="col created_at"><?php echo $data->getCreatedAt(); ?></td>
+                    <td data-th="Actions" class="col actions">
+                        <?php $id = ($data->getBannerId()) ? $data->getBannerId() : $data['banner_id']; ?>
+                        <!-- "$data->getTesting13Id()" was not working when I generated Vky_Testing13 module. That's why I had to place above line. -->
+                        <a href="<?php echo $block->getBaseUrl().'banner/index/view/id/'.$id; ?>" class="action view">
+                            <span>View</span>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <h2>We couldn't find any records</h2>
+<?php endif; ?>
+
+
+
+<h1> - -- -- -- -- -- -- -</h1>
+
+<?php $collection = $block->getBannerCollection(); ?>
+<?php if($collection->count() > 0): ?>
+<div id="owl-demo" class="owl-carousel owl-theme">
+   <?php foreach($collection as $slide ):?>
+   <div class="item">
+      <?php echo $slide->getTitle(); ?>
+      <?php echo $slide->getAuthor(); ?>
+      <?php if($slide->getImage()): ?>
+      <img src="<?php echo $block->getBaseUrl().'pub/media/'.$data->getImage(); ?>">
+      <?php else: ?>
+      <p>No Image</p>
+      <?php endif; ?>
+      <?php $id = ($slide->getBannerId()) ? $slide->getBannerId() : $slide['banner_id']; ?>
+      <!-- "$data->getTesting13Id()" was not working when I generated Vky_Testing13 module. That's why I had to place above line. -->
+      <a href="<?php echo $block->getBaseUrl().'banner/index/view/id/'.$id; ?>" class="action view">
+      <span>View</span>
+      </a>
+   </div>
+   <?php endforeach;?>
+</div>
+<?php endif;?>
+<style type="text/css">
+   #owl-demo .item img{
+   display: block;
+   width: 100%;
+   height: auto;
+   }
+</style>
+<script type="text/javascript">
+   require([
+         'jquery',
+         'owl.carousel'
+       ], function ($) {
+   
+      $("#owl-demo").owlCarousel({ 
+       navigation : true, // Show next and prev buttons 
+       slideSpeed : 300,
+       paginationSpeed : 400, 
+       items : 1, 
+       itemsDesktop : false,
+       itemsDesktopSmall : false,
+       itemsTablet: false,
+       itemsMobile : false 
+     });
+   });
+</script>

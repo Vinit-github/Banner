@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Xlab
+ * @package    Xlab_Banner
+ * @author     vinit.dapl@gmail.com
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="xlab_banner::core" title="Xlab" module="Xlab_Banner" sortOrder="90" resource="Xlab_Banner::sample"/>
+        <add id="xlab_banner::test" title="Banner Slides" module="Xlab_Banner" sortOrder="10" parent="xlab_banner::core" action="xlab_banner/items/" resource="Xlab_Banner::items"/>
+    </menu>
+</config>
